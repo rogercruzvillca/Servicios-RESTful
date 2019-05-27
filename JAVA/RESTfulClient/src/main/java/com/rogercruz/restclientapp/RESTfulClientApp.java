@@ -1,3 +1,5 @@
+package com.rogercruz.restclientapp;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +11,7 @@ public class RESTfulClientApp {
 
 	public static void main(String[] args) {
 		try {
-			String url = "Indicar URL de Servicio RESTful";
+			String url = "URL de servicio RESTful";
 			HttpURLConnection cx = RESTfulClientApp.metodoGet(url);
 			if (cx.getResponseCode() == 200) {
 				BufferedReader br = new BufferedReader(new InputStreamReader(cx.getInputStream()));
@@ -19,9 +21,8 @@ public class RESTfulClientApp {
 					sb.append(salida);
 				}
 				System.out.println("Salida json " + sb.toString());
-			}else {
-				System.out.println("Salida json " + cx.getResponseCode());
 			}
+			System.out.println("Codigo response " + cx.getResponseCode());
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
